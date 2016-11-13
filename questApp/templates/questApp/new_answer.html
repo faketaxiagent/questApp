@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "questApp/base.html" %}
+
+{% block content %}
+  <h3><a href="{% url 'questApp:answers' question.id %}">{{ question }}</a></h3>
+  <p>Add a new answer:</p>
+    <form action="{% url 'questApp:new_answer' question.id %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button name="submit">Add answer</button>
+    </form>
+{% endblock content %}

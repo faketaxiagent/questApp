@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "questApp/base.html" %}
+
+{% block header %}
+  <div class='jumbotron'>
+    <h1>Get the best answers to the best programming questions!</h1>
+  </div>
+{% endblock header %}
+
+{% block content %}
+  <h2>
+    <a href="{% url 'users:register' %}">Register an account</a>
+      to share intelligent programming interview questions you've ever asked or been asked.
+  </h2>
+  <h2>
+      QuestApp connects the people who have knowledge to the people who need it!
+  </h2>
+{% endblock content %}

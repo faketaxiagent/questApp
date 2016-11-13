@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "questApp/base.html" %}
+
+{% block header %}
+ <h2>{{ question }}</h2>
+        <small>
+          {% if question.owner.username == user.username %}
+          <a href="{% url 'questApp:edit_question' question.id %}">Edit question</a>
+          {% endif %}
+        </small>
+{% endblock header %}
+
+{% block content %}
+  <h4>
+    <a href="{% url 'questApp:new_answer' question.id %}">Add a new answer</a>
+  </h4>
+
+{% for answer in answers %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>
+        {{ answer.date_added| date:'M d, Y H:i' }}
+        <small>
+          {% if question.owner.username == user.username %}
+          <a href="{% url 'questApp:edit_answer' answer.id %}">Edit answer</a>
+          {% endif %}
+        </small>
+      </h3>
+    </div>
+    <div class="panel-body">
+      {{ answer.text|linebreaks }}
+    </div>
+    </div> <!-- panel -->
+{% empty %}
+    There are no entries for this topic yet.
+{% endfor %}
+
+
+{% endblock content %}
+
+
+
+
+
+

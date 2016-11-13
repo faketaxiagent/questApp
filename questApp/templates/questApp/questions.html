@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "questApp/base.html" %}
+
+
+{% block header%}
+  <h1>Questions:</h1>
+{% endblock header %}
+
+{% block content %}
+
+
+  <ul> {% for question in questions %}
+    <li>
+      <h3>
+        <a href="{% url 'questApp:answers' question.id %}"> {{ question }} </a>
+      </h3>
+    </li>
+  {% empty %}
+    <li>No questions added yet</li>
+  {% endfor %}
+  </ul>
+      <h3>
+        <a href="{% url 'questApp:new_question' %}">Add a new question</a>
+      </h3>
+
+{% endblock content %}
