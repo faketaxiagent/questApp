@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'izr)q27i+h+i8c3#_lm%aviy+@pnycd3$(!k$dy20%^s6&5m*l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['questapp.herokuapp.com']
 
 
 # Application definition
